@@ -1,0 +1,28 @@
+<program>         ::= "SOF" <expression-list> "EOF"
+
+<expression-list> ::= <expression> ( <EXPR-SEPARATOR> <expression> )+
+
+<expression>      ::= <operation-expr> | <terminal-expr>
+
+<operation-expr>  ::= <terminal-expr> <OPERATOR> <expression>
+
+<terminal-expr>   ::= <dice-roll-expr> | <number>
+
+<dice-roll-expr>  ::= [<positive-number>] <die> [<MODIFIER>]
+
+<die>             ::= <D-SYMBOL> <number>
+
+<number>          ::= ["-"] <positive-number>+
+
+<positive-number> ::= <DIGIT>+
+
+<EXPR-SEPARATOR>  ::= ";"
+
+<D-SYMBOL>        ::= "d" | "D"
+
+<OPERATOR>        ::= "+" | "-"
+
+<MODIFIER>        ::= "H" | "h" | "L" | "l" | "e"
+
+<DIGIT>           ::= "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"
+
