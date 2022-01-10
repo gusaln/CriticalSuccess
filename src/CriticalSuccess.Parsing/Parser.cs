@@ -28,6 +28,16 @@ public class Parser
     }
 
     /// <summary>
+    /// Parses a string.
+    /// </summary>
+    /// <param name="input"> The input string </param>
+    /// <returns> A <c>Rolls</c> instance. </returns>
+    public static Rolls ParseString(string input)
+    {
+        return ParserFactory.ForString(input).ParseAndGenerate();
+    }
+
+    /// <summary>
     /// Parses the stream of tokens from the tokenizer into an AST
     /// </summary>
     ///
@@ -45,6 +55,16 @@ public class Parser
         consumeEOF();
 
         return new Program(expressions);
+    }
+
+    /// <summary>
+    /// Parses the stream of tokens from the tokenizer and generates a Rolls instance
+    /// </summary>
+    ///
+    /// <returns> A <c>Rolls</c> expression. </returns>
+    public Rolls ParseAndGenerate()
+    {
+        return RollsGenerator.Generate(Parse());
     }
 
     private void consumeSOF()
