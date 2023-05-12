@@ -46,7 +46,7 @@ public class DiceTest
 
         result = dice1d10.Result();
         Assert.Equal(dice1d10, result.Expression);
-        Assert.Equal(0, result.Steps.Count);
+        Assert.Equal(1, result.Steps.Count);
     }
 
     [Fact]
