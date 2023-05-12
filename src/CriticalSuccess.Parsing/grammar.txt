@@ -1,4 +1,4 @@
-<program>         ::= "SOF" <expression-list> "EOF"
+<program>         ::= <expression-list>
 
 <expression-list> ::= <expression> ( <EXPR-SEPARATOR> <expression> )+
 
