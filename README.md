@@ -10,10 +10,6 @@ While not in active development, I share this code hoping you find this concept 
 
 [TOC]
 
-## Installation
-
-<!-- TODO -->
-
 ## Basic usage
 
 You can parse [expressions](#details-on-the-expressions-syntax) like `1d20` using the cli and get a result.
@@ -131,7 +127,7 @@ Other considerations:
 
 ### Modifiers
 
-At the end of any dice expression, you can use one of the following:
+At the end of any dice expression, you can use one of the following modifiers:
 
 - **H** only keeps the highest result.
     If you roll any number of dice, only the highest value will be kept.
