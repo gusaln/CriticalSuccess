@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+	<PropertyGroup>
+		<TargetFramework>net7.0</TargetFramework>
+		<IncludeOpenAPIAnalyzers>true</IncludeOpenAPIAnalyzers>
+	</PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3"/>
+	</ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\CriticalSuccess.Core\CriticalSuccess.Core.csproj"/>
+		<ProjectReference Include="..\CriticalSuccess.Parsing\CriticalSuccess.Parsing.csproj"/>
+	</ItemGroup>
+</Project>

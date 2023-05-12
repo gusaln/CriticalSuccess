@@ -1,4 +1,3 @@
-using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Text;
 using CriticalSuccess.Parsing;
@@ -8,24 +7,30 @@ using Spectre.Console.Cli;
 
 namespace CriticalSuccess.Console
 {
-    public class InteractiveRollCommand : Command<InteractiveRollCommand.InteractiveRollCommandSettings>
+    public class InteractiveShellCommand : Command<InteractiveShellCommand.InteractiveShellCommandSettings>
     {
-        public class InteractiveRollCommandSettings : CommandSettings
+        public class InteractiveShellCommandSettings : CommandSettings
         {
         }
 
-        public override int Execute([NotNull] CommandContext context, [NotNull] InteractiveRollCommandSettings settings)
+        public override int Execute([NotNull] CommandContext context, [NotNull] InteractiveShellCommandSettings settings)
         {
+            writeHelpMessage();
             while (true)
             {
-                System.Console.WriteLine("Commands: [c] to close");
-                string input = AnsiConsole.Ask<string>("Input a roll: ")
+                string input = AnsiConsole.Ask<string>("> ")
                     .Trim()
                     .ToLowerInvariant();
 
-                if (input == "c")
+                switch (input)
                 {
-                    return 0;
+                    case "c":
+                        return 0;
+                    case "?":
+                        writeHelpMessage();
+                        continue;
+                    default:
+                        break;
                 }
 
                 try
@@ -53,6 +58,11 @@ namespace CriticalSuccess.Console
             return 0;
         }
 
+        private void writeHelpMessage()
+        {
+            System.Console.WriteLine("Enter an expression or a command and press enter");
+            System.Console.WriteLine("Commands: [c] to close the shell, [?] to print this message");
+        }
     }
 
 }

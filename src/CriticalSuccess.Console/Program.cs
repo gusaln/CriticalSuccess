@@ -1,7 +1,4 @@
-﻿using System.Text;
-using CriticalSuccess.Parsing;
-using CriticalSuccess.Parsing.Lexer;
-using Spectre.Console.Cli;
+﻿using Spectre.Console.Cli;
 
 namespace CriticalSuccess.Console
 {
@@ -15,9 +12,9 @@ namespace CriticalSuccess.Console
 
             app.Configure((config) =>
             {
-                config.AddCommand<InteractiveRollCommand>("cli")
-                    .WithAlias("roll")
-                    .WithDescription("Creates a console for rolling multiple rolls");
+                config.AddCommand<InteractiveShellCommand>("cli")
+                    .WithAlias("shell")
+                    .WithDescription("Creates a shell for rolling multiple rolls");
             });
 
             return app.Run(args);
